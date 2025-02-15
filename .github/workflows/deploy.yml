@@ -31,5 +31,5 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: dist  # Changed from 'build' to 'dist' - Vite uses 'dist' by default
           branch: gh-pages
