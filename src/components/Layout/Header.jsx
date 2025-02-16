@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  // Get the base URL from the router's basename
+  const baseUrl = import.meta.env.BASE_URL;
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50); // Change header after 50px scroll
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -15,80 +16,42 @@ function Header() {
   }, []);
 
   return (
-    <header style={{
-      position: 'sticky',
-      top: 0,
-      backgroundColor: 'white',
-      zIndex: 1000,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      padding: isScrolled ? '0.5rem 1rem' : '1rem',
-      borderBottom: '1px solid #eaeaea',
-      marginBottom: '2rem',
-      transition: 'all 0.3s ease-in-out',
-    }}>
-      <div style={{ flex: 1 }}>
-        <h1 style={{ 
-          margin: 0, 
-          fontSize: isScrolled ? '1.2rem' : '1.5rem',
-          transition: 'font-size 0.3s ease-in-out'
-        }}>
-          David Salathé
-        </h1>
-      </div>
-      
-      <div style={{ 
-        flex: 1, 
-        display: 'flex', 
-        justifyContent: 'center',
-        opacity: isScrolled ? 0 : 1,
-        transform: `scale(${isScrolled ? 0.8 : 1})`,
-        transition: 'all 0.3s ease-in-out',
-        visibility: isScrolled ? 'hidden' : 'visible',
-        height: isScrolled ? '0' : '50px',
-      }}>
-        <img
-          src="/profile-picture.jpg"
-          alt="David Salathé"
-          style={{
-            width: '50px',
-            height: '50px',
-            borderRadius: '50%',
-            objectFit: 'cover'
-          }}
-        />
-      </div>
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
+      <div className="header-content">
+        <div className="header-left">
+          <Link to="/" className="header-title">
+            <h1>David Salathé</h1>
+          </Link>
+        </div>
+        
+        <div className={`header-center ${isScrolled ? 'header-center-hidden' : ''}`}>
+          <a 
+            href="https://dsalathe.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="profile-pic-link"
+          >
+            <img
+              // Use the baseUrl for the image path
+              src={`${baseUrl}profile-picture.jpg`}
+              alt="David Salathé"
+              className="header-profile-pic"
+            />
+          </a>
+        </div>
 
-      <nav style={{ 
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'flex-end',
-        gap: '1rem'
-      }}>
-        <Link 
-          to="/"
-          style={{
-            textDecoration: 'none',
-            color: '#333',
-            fontWeight: 500
-          }}
-        >
-          Blog
-        </Link>
-        <a 
-          href="https://dsalathe.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            textDecoration: 'none',
-            color: '#333',
-            fontWeight: 500
-          }}
-        >
-          About
-        </a>
-      </nav>
+        <nav className="header-nav">
+          <Link to="/" className="nav-link">Blog</Link>
+          <a 
+            href="https://dsalathe.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+          >
+            About
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }
