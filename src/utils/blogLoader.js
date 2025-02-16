@@ -41,7 +41,8 @@ export const loadBlogPosts = async () => {
         title: data.title,
         description: data.description,
         publishedDate: data.publishedDate,
-        keywords: data.keywords
+        keywords: data.keywords,
+        image: data.image // Add this line
       });
     }
     

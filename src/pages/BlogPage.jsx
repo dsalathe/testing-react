@@ -16,6 +16,11 @@ function BlogPage() {
     });
   };
 
+  const getImageUrl = (imagePath) => {
+    const baseUrl = import.meta.env.BASE_URL;
+    return imagePath ? `${baseUrl}${imagePath}` : null;
+  };
+
   useEffect(() => {
     const loadBlog = async () => {
       try {
@@ -48,6 +53,15 @@ function BlogPage() {
   return (
     <div className="blog-post-container">
       <article className="blog-post">
+        {blog.image && (
+          <div className="blog-post-image">
+            <img 
+              src={getImageUrl(blog.image)} 
+              alt={blog.title}
+              loading="lazy"
+            />
+          </div>
+        )}
         <Markdown>{blog.content}</Markdown>
         <div className="blog-post-meta">
           <p className="blog-post-date">Published: {formatDate(blog.publishedDate)}</p>

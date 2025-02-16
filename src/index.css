@@ -94,6 +94,8 @@ p {
 .blog-card-link:nth-child(n+6) { animation-delay: 0.5s; }
 
 .blog-card {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -109,6 +111,7 @@ p {
 }
 
 .blog-card-content {
+  flex: 1;
   padding: 24px;
 }
 
@@ -225,6 +228,7 @@ p {
   border-bottom: 1px solid #eaeaea;
   transition: all 0.3s ease;
   width: 100%; /* Make header span full width */
+  padding-bottom: 24px; /* Add padding to account for the overflowing profile pic */
 }
 
 .header-scrolled {
@@ -283,6 +287,8 @@ p {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease;
+  position: relative; /* Add this */
+  height: 0; /* Add this */
 }
 
 .header-center-hidden {
@@ -292,55 +298,40 @@ p {
 }
 
 .header-profile-pic {
-  width: 48px;
-  height: 48px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
 }
 
 .header-scrolled .header-title h1 {
   font-size: 1.25rem;
 }
 
+.header-scrolled .header-profile-pic {
+  width: 60px; /* Smaller size when scrolled */
+  height: 50px;
+  bottom: -30px; /* Adjust position when scrolled */
+}
+
+/* Update hover effect to avoid horizontal shift */
 .header-profile-pic:hover {
-  transform: scale(1.1);
+  transform: translateX(-50%) scale(1.1);
 }
 
 .header-nav {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #4a5568;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: #4299e1;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #4299e1;
-}
-
-.nav-link:hover::after {
-  width: 100%;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* Blog Post Page Styles */
@@ -461,4 +452,101 @@ p {
     transparent,
     rgba(224, 231, 255, 1) /* Match this color with your body background */
   );
+}
+
+/* Add these new styles */
+
+.blog-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.blog-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+  transform: scale(1.05);
+}
+
+.blog-post-image {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.blog-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Add these new styles for social links */
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid #eaeaea;
+}
+
+.social-link {
+  color: #4a5568;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-link:hover {
+  color: #4299e1;
+  transform: translateY(-2px);
+}
+
+/* Update existing header-nav styles to accommodate social links */
+.header-nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Add new nav link styles */
+.nav-link {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #4299e1;
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .header-nav {
+    gap: 0.5rem;
+  }
+
+  .social-links {
+    margin-left: 0.5rem;
+    padding-left: 0.5rem;
+  }
 }

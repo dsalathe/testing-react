@@ -3,6 +3,7 @@ id: 2
 title: Getting Started with React
 description: Learn the basics of React and its core concepts
 publishedDate: 2025-02-16
+image: logo512.png
 keywords:
   - react
   - javascript
