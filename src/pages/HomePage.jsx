@@ -30,6 +30,11 @@ function HomePage() {
     });
   };
 
+  const getImageUrl = (imagePath) => {
+    const baseUrl = import.meta.env.BASE_URL;
+    return imagePath ? `${baseUrl}${imagePath}` : null;
+  };
+
   const filteredBlogs = blogs.filter(blog =>
     !searchQuery || blog.keywords.some(keyword =>
       keyword.toLowerCase().includes(searchQuery.toLowerCase())
@@ -80,6 +85,15 @@ function HomePage() {
             className="blog-card-link"
           >
             <article className="blog-card">
+              {blog.image && (
+                <div className="blog-card-image">
+                  <img 
+                    src={getImageUrl(blog.image)} 
+                    alt={blog.title}
+                    loading="lazy"
+                  />
+                </div>
+              )}
               <div className="blog-card-content">
                 <h2>{blog.title}</h2>
                 <p className="blog-description">{blog.description}</p>

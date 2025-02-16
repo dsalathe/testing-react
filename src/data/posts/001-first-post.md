@@ -3,6 +3,7 @@ id: 1
 title: First Blog Post
 description: This is my first blog post
 publishedDate: 2025-02-15
+image: Octocat.png
 keywords:
   - first
   - blog
