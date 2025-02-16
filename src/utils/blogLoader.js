@@ -27,12 +27,15 @@ export const loadBlogPost = async (id) => {
 
 export const loadBlogPosts = async () => {
   try {
+    console.log('Available blog files:', Object.keys(blogFiles)); // Debug line
     const posts = [];
     const files = Object.keys(blogFiles);
     
     for (const path of files) {
       const content = await blogFiles[path]();
+      console.log('Processing file:', path); // Debug line
       const { data } = matter(content);
+      console.log('Parsed frontmatter:', data); // Debug line
       posts.push({
         id: data.id,
         title: data.title,
@@ -42,7 +45,12 @@ export const loadBlogPosts = async () => {
       });
     }
     
-    return posts.sort((a, b) => b.id - a.id);
+    // Sort by publishedDate instead of id
+    const sortedPosts = posts.sort((a, b) => 
+      new Date(b.publishedDate) - new Date(a.publishedDate)
+    );
+    console.log('Final posts array:', sortedPosts); // Debug line
+    return sortedPosts;
   } catch (error) {
     console.error('Error loading blog posts:', error);
     return [];

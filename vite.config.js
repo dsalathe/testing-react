@@ -10,5 +10,21 @@ export default defineConfig({
     })
   ],
   base: '/testing-react/',
-  assetsInclude: ['**/*.md']
+  assetsInclude: ['**/*.md'],
+  build: {
+    outDir: 'dist',
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      define: {
+        global: 'globalThis'
+      }
+    }
+  },
+  resolve: {
+    alias: {
+      buffer: 'buffer/',
+      process: 'process/browser',
+    }
+  }
 });
