@@ -22,6 +22,14 @@ function HomePage() {
     loadBlogs();
   }, []);
 
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   const filteredBlogs = blogs.filter(blog =>
     !searchQuery || blog.keywords.some(keyword =>
       keyword.toLowerCase().includes(searchQuery.toLowerCase())
@@ -40,11 +48,7 @@ function HomePage() {
     <div style={{ padding: '20px' }}>
       <h1>Welcome to My Blog</h1>
       
-      {/* Search Bar */}
-      <div style={{
-        marginBottom: '20px',
-        marginTop: '20px'
-      }}>
+      <div style={{ marginBottom: '20px', marginTop: '20px' }}>
         <input
           type="text"
           placeholder="Search by keyword..."
@@ -61,7 +65,6 @@ function HomePage() {
         />
       </div>
 
-      {/* Blog List */}
       <div style={{ marginTop: '20px' }}>
         {filteredBlogs.map(blog => (
           <Link
@@ -81,24 +84,14 @@ function HomePage() {
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
               }
             }}>
-              <h2 style={{ 
-                margin: '0 0 10px 0',
-                color: '#2d3748'
-              }}>
+              <h2 style={{ margin: '0 0 10px 0', color: '#2d3748' }}>
                 {blog.title}
               </h2>
-              <p style={{ 
-                color: '#4a5568',
-                margin: '0 0 10px 0' 
-              }}>
+              <p style={{ color: '#4a5568', margin: '0 0 10px 0' }}>
                 {blog.description}
               </p>
-              <p style={{ 
-                color: '#718096',
-                fontSize: '0.9em',
-                margin: '0 0 10px 0'
-              }}>
-                Published: {blog.publishedDate}
+              <p style={{ color: '#718096', fontSize: '0.9em', margin: '0 0 10px 0' }}>
+                Published: {formatDate(blog.publishedDate)}
               </p>
               <div style={{ marginTop: '10px' }}>
                 {blog.keywords.map(keyword => (
