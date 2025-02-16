@@ -2,9 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #f5f5f5;
+  background: #e0e7ff; /* Solid color instead of gradient */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; /* Ensure background covers full viewport height */
+  position: relative; /* Add this */
 }
 
 code {
@@ -24,14 +26,17 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative; /* Add this */
+  z-index: 1; /* Add this */
 }
 
 .hero-section {
   text-align: center;
-  padding: 60px 0;
+  padding: 60px 20px; /* Added horizontal padding */
   background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
   border-radius: 16px;
-  margin-bottom: 40px;
+  margin: -20px -20px 40px -20px; /* Negative margin to break out of container */
+  position: relative;
 }
 
 .hero-section h1 {
@@ -76,7 +81,17 @@ p {
 .blog-card-link {
   text-decoration: none;
   color: inherit;
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+  will-change: transform, opacity;
 }
+
+.blog-card-link:nth-child(1) { animation-delay: 0s; }
+.blog-card-link:nth-child(2) { animation-delay: 0.1s; }
+.blog-card-link:nth-child(3) { animation-delay: 0.2s; }
+.blog-card-link:nth-child(4) { animation-delay: 0.3s; }
+.blog-card-link:nth-child(5) { animation-delay: 0.4s; }
+.blog-card-link:nth-child(n+6) { animation-delay: 0.5s; }
 
 .blog-card {
   background: #ffffff;
@@ -85,6 +100,7 @@ p {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   height: 100%;
+  transform-origin: center;
 }
 
 .blog-card:hover {
@@ -141,6 +157,7 @@ p {
   background: #f7fafc;
   border-radius: 12px;
   margin-top: 20px;
+  animation: fadeIn 0.5s ease forwards;
 }
 
 .loading-container {
@@ -173,6 +190,17 @@ p {
   100% { transform: rotate(360deg); }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   .hero-section {
     padding: 40px 0;
@@ -196,6 +224,7 @@ p {
   z-index: 1000;
   border-bottom: 1px solid #eaeaea;
   transition: all 0.3s ease;
+  width: 100%; /* Make header span full width */
 }
 
 .header-scrolled {
@@ -322,7 +351,8 @@ p {
 }
 
 .blog-post {
-  background: white;
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  backdrop-filter: blur(8px);
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -392,4 +422,43 @@ p {
   .header-scrolled {
     margin: 0 0.5rem; /* Smaller margin on mobile */
   }
+}
+
+/* Add new stripes background */
+.background-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/* Add this new class for the mountain background */
+.mountain-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px; /* Adjust this value to control the height of the mountain image */
+  background-image: var(--mountain-bg-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Add this new class for the gradient overlay */
+.mountain-background::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* Adjust this value to control the gradient height */
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(224, 231, 255, 1) /* Match this color with your body background */
+  );
 }
