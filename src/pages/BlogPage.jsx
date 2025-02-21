@@ -8,6 +8,11 @@ function BlogPage() {
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Add this useEffect to handle scroll reset
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
