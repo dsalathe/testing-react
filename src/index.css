@@ -2,11 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: #e0e7ff; /* Solid color instead of gradient */
+  background: #e0e7ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh; /* Ensure background covers full viewport height */
-  position: relative; /* Add this */
+  position: relative;
 }
 
 code {
@@ -26,16 +26,16 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative; /* Add this */
-  z-index: 1; /* Add this */
+  position: relative;
+  z-index: 1;
 }
 
 .hero-section {
   text-align: center;
-  padding: 60px 20px; /* Added horizontal padding */
+  padding: 60px 20px;
   background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
   border-radius: 16px;
-  margin: -20px -20px 40px -20px; /* Negative margin to break out of container */
+  margin: -20px -20px 40px -20px;
   position: relative;
 }
 
@@ -50,7 +50,6 @@ p {
   color: #4a5568;
 }
 
-/* Update the search container styles */
 .search-container {
   max-width: 600px;
   width: 90%;
@@ -58,7 +57,6 @@ p {
   padding: 0 20px;
 }
 
-/* Update the search input styles */
 .search-input {
   width: 100%;
   padding: 16px 24px;
@@ -304,8 +302,8 @@ p {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.3s ease;
-  position: relative; /* Add this */
-  height: 0; /* Add this */
+  position: relative;
+  height: 0;
 }
 
 .header-center-hidden {
@@ -432,7 +430,6 @@ p {
   }
 }
 
-/* Add new stripes background */
 .background-decoration {
   position: fixed;
   top: 0;
@@ -442,7 +439,6 @@ p {
   z-index: -1;
 }
 
-/* Add this new class for the mountain background */
 .mountain-background {
   position: absolute;
   top: 0;
@@ -470,8 +466,6 @@ p {
     rgba(224, 231, 255, 1) /* Match this color with your body background */
   );
 }
-
-/* Add these new styles */
 
 .blog-card-image {
   width: 100%;
@@ -505,7 +499,7 @@ p {
   object-fit: cover;
 }
 
-/* Add these new styles for social links */
+/* social links */
 .social-links {
   display: flex;
   align-items: center;
@@ -536,7 +530,6 @@ p {
   gap: 1rem;
 }
 
-/* Add new nav link styles */
 .nav-link {
   color: #4a5568;
   text-decoration: none;
@@ -568,7 +561,6 @@ p {
   }
 }
 
-/* Add these styles at the end of your index.css file */
 .share-button {
   display: inline-flex;
   align-items: center;
@@ -600,13 +592,12 @@ p {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
-  margin: 2rem auto; /* Changed from '2rem 0' to '2rem auto' */
+  margin: 2rem auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: block; /* Add this to enable margin auto */
+  display: block;
 }
 
 
-/* Keep the caption styling */
 .blog-post img + em {
   display: block;
   text-align: center;
@@ -617,7 +608,6 @@ p {
 }
 
 
-/* Table styles */
 .blog-post table {
   width: 100%;
   border-collapse: collapse;
@@ -634,7 +624,6 @@ p {
   text-align: center;
   font-weight: 600;
   color: #1a202c;
-  /* Remove width specifications */
 }
 
 .blog-post td {
@@ -646,7 +635,6 @@ p {
   font-size: 90%;
 }
 
-/* Add this new style for first column */
 .blog-post td:first-child,
 .blog-post th:first-child {
   font-weight: 600;

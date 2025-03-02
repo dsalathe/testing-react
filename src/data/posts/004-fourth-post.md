@@ -1,13 +1,13 @@
 ---
 id: 4
-title: Fourth Blog Post
-description: This is my fourth blog post
+title: Will AI be smarter than humans?
+description: Coming soon
 publishedDate: 2025-02-15
+image: aivshuman.webp
 keywords:
-  - first
-  - blog
+  - coming soon
 ---
 
-# Fourth Blog Post
+# Will AI be smarter than humans?
 
-Hello World!
+Coming Soon
