@@ -1,70 +1,128 @@
-# GitHub Codespaces ♥️ React
+# Personal Blog - React
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+![React Blog App](https://github.com/dsalathe/testing-react/raw/main/public/mountainAlps.webp)
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## Overview
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+This is a responsive personal blog application built with React and Vite, designed for easy content management and GitHub Pages deployment. The blog features a clean, modern interface with search functionality, responsive design, and Markdown content support.
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+## Features
 
-## Available Scripts
+- 📱 **Responsive Design**: Optimized for mobile, tablet, and desktop viewing
+- 🔍 **Search Functionality**: Filter blog posts by keywords
+- ✨ **Modern UI**: Clean, professional interface with animations and transitions
+- 📝 **Markdown Support**: Write blog posts in Markdown with frontmatter metadata
+- 🖼️ **Image Optimization**: Lazy-loading images for improved performance
+- 🔄 **GitHub Actions**: Automated deployment to GitHub Pages
+- 🔗 **Social Sharing**: Built-in sharing functionality for blog posts
+- 🧩 **Component-Based Architecture**: Modular and maintainable code structure
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Routing**: React Router DOM
+- **Styling**: CSS with responsive design
+- **Content**: Markdown with gray-matter for frontmatter parsing
+- **Deployment**: GitHub Pages via GitHub Actions
 
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
+### Prerequisites
 
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (LTS version recommended)
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/testing-react.git
+   cd testing-react
+   ```
 
-### `npm run build`
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Start the development server:
+   ```
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Adding Blog Posts
 
-## Learn More
+Create new Markdown files in the `src/data/posts/` directory with the following frontmatter format:
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+```markdown
+---
+id: 5
+title: Your Blog Post Title
+description: A brief description of the post
+publishedDate: 2025-03-02
+image: your-image.jpg
+keywords:
+  - keyword1
+  - keyword2
+---
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+# Your Blog Post Title
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Your content goes here...
+```
 
-### Code Splitting
+Images should be placed in the `public` directory.
 
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
+## Deployment
 
-### Analyzing the Bundle Size
+This project is configured to deploy to GitHub Pages using GitHub Actions. When you push changes to the `main` branch, the workflow will automatically build and deploy the application.
 
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
+To set up deployment:
 
-### Making a Progressive Web App
+1. Ensure your repository is configured to use GitHub Pages
+2. Update the `homepage` field in `package.json` with your GitHub Pages URL
+3. Push changes to the `main` branch
 
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
+## Development with GitHub Codespaces
 
-### Advanced Configuration
+This repository is configured for GitHub Codespaces, providing a complete development environment in the cloud:
 
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
+1. Click on the "Code" button on the repository page
+2. Select "Open with Codespaces"
+3. Create a new codespace or use an existing one
 
-### Deployment
+The development server will start automatically, and all necessary extensions will be pre-installed.
 
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
+## Project Structure
 
-### Troubleshooting
+```
+testing-react/
+├── .devcontainer/    # Codespaces configuration
+├── .github/          # GitHub Actions workflows
+├── public/           # Static assets and images
+├── src/
+│   ├── components/   # Reusable UI components
+│   ├── data/         # Blog post content (Markdown files)
+│   ├── pages/        # Page components
+│   ├── utils/        # Utility functions
+│   ├── App.jsx       # Main application component
+│   └── index.jsx     # Application entry point
+└── vite.config.js    # Vite configuration
+```
 
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
