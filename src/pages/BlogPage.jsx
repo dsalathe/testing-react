@@ -43,6 +43,12 @@ function BlogPage() {
     loadBlog();
   }, [id]);
 
+  const baseUrl = import.meta.env.BASE_URL;
+  
+  const processMarkdown = (content) => {
+    return content.replace(/\${baseUrl}/g, baseUrl);
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -68,7 +74,7 @@ function BlogPage() {
             />
           </div>
         )}
-        <Markdown>{blog.content}</Markdown>
+        <Markdown>{processMarkdown(blog.content)}</Markdown>
         <div className="blog-post-meta">
           <p className="blog-post-date">Published: {formatDate(blog.publishedDate)}</p>
           <ShareButton title={blog.title} />
