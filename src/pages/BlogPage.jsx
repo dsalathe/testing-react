@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getBlogById } from '../data/blogs';
 import Markdown from 'markdown-to-jsx';
+import ShareButton from '../components/ShareButton';
 
 function BlogPage() {
   const { id } = useParams();
@@ -70,6 +71,7 @@ function BlogPage() {
         <Markdown>{blog.content}</Markdown>
         <div className="blog-post-meta">
           <p className="blog-post-date">Published: {formatDate(blog.publishedDate)}</p>
+          <ShareButton title={blog.title} />
         </div>
       </article>
       <Link to="/" className="back-button">
