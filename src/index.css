@@ -615,3 +615,40 @@ p {
   margin-top: -1.5rem;
   margin-bottom: 2rem;
 }
+
+
+/* Table styles */
+.blog-post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  table-layout: fixed; /* Add this to ensure equal column widths */
+}
+
+.blog-post th {
+  background: #f8fafc;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #1a202c;
+  /* Remove width specifications */
+}
+
+.blog-post td {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #edf2f7;
+  word-wrap: break-word; /* Handle long content */
+  overflow-wrap: break-word; /* Modern browsers */
+  font-size: 90%;
+}
+
+/* Add this new style for first column */
+.blog-post td:first-child,
+.blog-post th:first-child {
+  font-weight: 600;
+}
+

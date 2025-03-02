@@ -10,7 +10,6 @@ keywords:
   - Copilot
   - React
   - AI
-  - Backend
 ---
 
 # GitHub's 2025 Power Tools: Codespaces and Copilot
