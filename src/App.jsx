@@ -1,12 +1,11 @@
 import './App.css';
 import { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
 import BlogPage from './pages/BlogPage';
 
 function App() {
-  // Use import.meta.env instead of process.env for Vite
   const baseUrl = import.meta.env.BASE_URL || '';
   
   useEffect(() => {
@@ -17,7 +16,7 @@ function App() {
   }, [baseUrl]);
 
   return (
-    <Router basename={baseUrl}>
+    <Router>
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />

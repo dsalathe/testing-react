@@ -32,6 +32,20 @@
         }
       }(window.location))
     </script>
+    <script type="text/javascript">
+      (function() {
+        const repo = '/testing-react';
+        const location = window.location;
+        
+        // Check if we need to redirect
+        const redirectParam = new URLSearchParams(location.search).get('p');
+        if (redirectParam) {
+          // Remove the "p" parameter and replace the URL
+          const newUrl = repo + redirectParam;
+          window.history.replaceState(null, null, newUrl);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

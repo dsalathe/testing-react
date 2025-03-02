@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom';
 function ShareButton({ title }) {
   const location = useLocation();
   const baseUrl = import.meta.env.VITE_BASE_URL || 'https://dsalathe.github.io/testing-react';
-  const fullUrl = `${baseUrl}${location.pathname}`;
+  // Use pathname from useLocation instead of hash
+  const fullUrl = `${baseUrl}/#${location.pathname}`;
 
   const handleShare = async () => {
     if (navigator.share) {
@@ -16,7 +17,6 @@ function ShareButton({ title }) {
         console.log('Error sharing:', error);
       }
     } else {
-      // Fallback to copying to clipboard
       try {
         await navigator.clipboard.writeText(fullUrl);
         alert('Link copied to clipboard!');
