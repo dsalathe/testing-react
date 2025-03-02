@@ -1,6 +1,6 @@
 const e=`---
 id: 1
-title: "GitHub's 2025 Power Tools: Codespaces and Copilot for the Experienced Coder"
+title: "GitHub's 2025 Power Tools: Codespaces and Copilot"
 description: "A backend engineer's take on GitHub Codespaces and Copilot's latest updates—building a React app with no prior React experience, powered by cloud dev and AI."
 publishedDate: 2025-02-21
 image: Octocat.png
@@ -13,9 +13,11 @@ keywords:
   - Backend
 ---
 
-# GitHub's 2025 Power Tools: Codespaces and Copilot for the Experienced Coder
+# GitHub's 2025 Power Tools: Codespaces and Copilot
 
 As a backend developer and data engineer with experience in Python, Java, and Scala on Azure and AWS, I recently decided to step out of my comfort zone and build a React app—a domain I'd never touched—using GitHub Codespaces and Copilot. Spoiler: I'm writing this post inside that app right now, and it's live for you to see. By February 21, 2025, these tools have evolved into a powerful combination for developers looking to explore new territories. Here's how their latest updates helped me navigate frontend development efficiently.
+
+![Developer's Journey with GitHub Tools](\${baseUrl}blog-images/whycodespaceandcopilot.png)
 
 ## Codespaces: Streamlining Development Environment Setup
 
@@ -81,6 +83,8 @@ Several features made this particularly valuable for me:
 
 * **Pre-configured Environment**: The "universal:2" image includes Node.js, Git, and other essentials, eliminating dependency management challenges.
 
+![Enhancing Developer Efficiency](\${baseUrl}blog-images/enhancingdeveloperefficiency.png)
+
 The 2025 update to Codespaces brings faster spin-up times through region-optimized servers, making the experience even more efficient. For open-source projects, where local setup can be complicated, this is particularly valuable.
 
 You can further accelerate container creation by setting up prebuilt configurations. Navigate to Settings > Codespaces > Prebuild configuration to configure this feature, which significantly reduces spin-up times by preparing your environment in advance.
@@ -96,6 +100,8 @@ My approach leveraged core development principles:
 * **Component-Based Development**: Next, I requested initial building blocks—such as headers or post renderers—testing each component in Codespaces as I progressed. These early changes established the foundation.
 
 * **Iterative Refinement**: Once the basics were functioning, I moved to smaller, more precise adjustments, reviewing each suggestion carefully. When issues arose, I would revert changes, refine my prompts, and try again.
+
+![Building a Blog App with AI](\${baseUrl}blog-images/buildingblogwithai.png)
 
 The integration of Copilot into Codespaces creates a particularly efficient workflow. I could accept suggestions with a keystroke, immediately see results in the preview, and easily revert unwanted changes with GitLens. While Copilot occasionally overcomplicated solutions, my iterative approach and constant review process kept the project on track.
 
@@ -159,7 +165,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist  # Changed from 'build' to 'dist' - Vite uses 'dist' by default
+          folder: dist
           branch: gh-pages
 \`\`\`
 
