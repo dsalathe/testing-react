@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script>
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
+      // Get the repository name from the URL
+      const repo = '/testing-react';
+      const segments = window.location.pathname.split('/');
+      const l = window.location;
+      
+      // Remove the repository name from the pathname if present
+      const cleanPath = segments
+        .filter(s => s !== '' && s !== 'testing-react')
+        .join('/');
+
+      // Reconstruct the URL with the repository name as base
+      const redirectUrl = repo + '/?p=' + encodeURIComponent('/' + cleanPath);
+      window.location.replace(redirectUrl);
     </script>
   </head>
   <body>

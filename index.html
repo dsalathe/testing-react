@@ -32,7 +32,21 @@
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/testing-react/assets/index-8f577c85.js"></script>
+    <script type="text/javascript">
+      (function() {
+        const repo = '/testing-react';
+        const location = window.location;
+        
+        // Check if we need to redirect
+        const redirectParam = new URLSearchParams(location.search).get('p');
+        if (redirectParam) {
+          // Remove the "p" parameter and replace the URL
+          const newUrl = repo + redirectParam;
+          window.history.replaceState(null, null, newUrl);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/testing-react/assets/index-5ae31275.js"></script>
     <link rel="stylesheet" href="/testing-react/assets/index-83bd0b1e.css">
   </head>
   <body>
